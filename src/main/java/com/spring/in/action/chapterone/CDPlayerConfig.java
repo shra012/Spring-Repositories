@@ -1,4 +1,4 @@
-package com.example.spring.soundsystem;
+package com.spring.in.action.chapterone;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

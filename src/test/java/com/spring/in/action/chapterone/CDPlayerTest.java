@@ -1,4 +1,5 @@
-package com.example.spring.soundsystem;
+package com.spring.in.action.chapterone;
+
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertEquals;
@@ -15,9 +16,14 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.spring.in.action.chapterone.CompactDisc;
+import com.spring.in.action.chapterone.Discography;
+import com.spring.in.action.chapterone.MediaPlayer;
+import com.spring.in.action.chapterone.SoundSystemConfig;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes=SoundSystemConfig.class)
-@ActiveProfiles(value="prod")
+@ActiveProfiles(value="dev")
 public class CDPlayerTest {
 	@Rule
 	public final SystemOutRule log =

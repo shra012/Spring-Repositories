@@ -1,4 +1,4 @@
-package com.example.spring.soundsystem;
+package com.spring.in.action.chapterone;
 
 import java.util.List;
 import java.util.stream.Collectors;

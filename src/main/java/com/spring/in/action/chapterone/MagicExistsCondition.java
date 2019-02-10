@@ -1,4 +1,4 @@
-package com.example.spring.soundsystem;
+package com.spring.in.action.chapterone;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
