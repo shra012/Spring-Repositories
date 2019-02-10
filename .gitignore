@@ -2,9 +2,11 @@
 *.class
 
 # Eclipse and target
-*.classpath
-*.project
+.classpath
+.project
+.settings/
 /target/**
+/bin
 
 # Log file
 *.log
