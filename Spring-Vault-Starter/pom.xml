@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>vault</artifactId>
+	<artifactId>Spring-Vault-Starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>vault</name>
 	<description>Demo project for Spring Boot vault</description>
