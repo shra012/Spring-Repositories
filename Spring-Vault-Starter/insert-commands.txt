@@ -1,0 +1,2 @@
+vault kv put secret/keys config.authtoke=github config.value=demogithub
+vault kv put secret/keys/cloud config.authtoke=aws config.value=demowas
