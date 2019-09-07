@@ -1,2 +1,38 @@
+## Example insert
 vault kv put secret/keys config.authtoke=github config.value=demogithub
 vault kv put secret/keys/cloud config.authtoke=aws config.value=demowas
+## Dynamic Users.
+
+#Enable the database secrets engine
+vault secrets enable database
+
+#Configure MySQL roles and permissions
+mysql -u root -p
+CREATE ROLE 'dev-role';
+CREATE USER 'vault'@'<YourPublicIP>' IDENTIFIED BY 'password';
+CREATE DATABASE devdb;
+GRANT ALL ON *.* TO 'vault'@'<YourPublicIP>';
+GRANT GRANT OPTION ON devdb.* TO 'vault'@'<YourPublicIP>';
+
+vault write database/config/dev-mysql-database \
+    plugin_name=mysql-database-plugin \
+    connection_url="{{username}}:{{password}}@tcp(localhost:3306)/" \
+    allowed_roles="dev-role" \
+    username="vault" \
+    password="password"
+
+
+    vault write database/roles/dev-role \
+    db_name=dev-mysql-database \
+    creation_statements="CREATE USER '{{name}}'@'localhost' IDENTIFIED BY '{{password}}';GRANT ALL ON devdb.* TO '{{name}}'@'localhost';" \
+    default_ttl="1h" \
+    max_ttl="24h"
+    
+    
+#Generate credentials on the DB from the role
+vault read database/creds/dev-role
+
+#Validate that the user has been created on MySQL and that the proper
+#permissions have been applied
+SELECT User FROM mysql.user;
+SHOW GRANTS FOR 'username'@'localhost';
