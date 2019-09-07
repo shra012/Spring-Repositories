@@ -25,6 +25,7 @@ vault write database/config/dev-mysql-database \
     vault write database/roles/dev-role \
     db_name=dev-mysql-database \
     creation_statements="CREATE USER '{{name}}'@'localhost' IDENTIFIED BY '{{password}}';GRANT ALL ON devdb.* TO '{{name}}'@'localhost';" \
+    revocation_statements="DROP USER '{{name}}'@'localhost';" \
     default_ttl="1h" \
     max_ttl="24h"
     
