@@ -36,3 +36,11 @@ vault read database/creds/dev-role
 #permissions have been applied
 SELECT User FROM mysql.user;
 SHOW GRANTS FOR 'username'@'localhost';
+
+#Renew the lease
+vault lease renew -increment=3600 database/creds/dev-role/LEASE_ID
+
+vault lease renew -increment=96400 database/creds/dev-role/LEASE_ID
+
+#Revoke the lease
+vault lease revoke database/creds/dev-role/LEASE_ID
