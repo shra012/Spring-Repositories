@@ -8,6 +8,9 @@
 /target/**
 /bin
 
+# Intellij
+.idea
+
 # Log file
 *.log
 
